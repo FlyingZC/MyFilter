@@ -1,0 +1,48 @@
+1.index.jsp里链接到test.jsp
+2.HelloFilter和SecondFilter是test.jsp的两个过滤器
+(2)
+1.dispatcher.jsp转发到test.jsp
+2.
+(3)filter实现页面禁用缓存
+1.cache/a.jsp链接到b.jsp
+2.NoCacheFilter过滤cache下的页面
+3.当更改a中图片.即可显示
+(4)定制的HttpFilter类 HttpFilter
+
+1409
+1.管理权限-权限控制
+(1)权限管理
+ [1]查看权限
+ [2]权限修改
+ 
+ 2.权限控制:有权限访问.无权限返回
+ 
+ 具体实现
+ (2)管理权限
+ [1]封装权限信息:Authority
+ class Authority{
+ 	//显示到页面上的权限的名字
+ 	private String displayName;
+ 	//权限对应的url.一个权限对应多个权限 .这里只一对一
+ 	private String url; 
+ }
+ 
+ [2]封装用户信息:User
+ User{
+ 	private String userName;
+ 	private List<Authority> authorities;
+ }
+ 
+ [3]创建一个UserDao
+ User get(String username)
+ void update(String username,List<Autority>)
+ 
+ [4]页面
+ authority-manager.jsp:有一个text文本框.获取输入的username,提交后
+ 使用checkbox检测权限
+ 
+ Servlet 
+ authority-manager.jsp提交表单后.获取表单请求参数:username,根据
+ 
+ 
+ 
